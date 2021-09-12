@@ -1,0 +1,145 @@
+
+Skip to content
+Pull requests
+Issues
+Marketplace
+Explore
+@gespi1
+Your GitHub academic discount coupon has expired
+
+    If you’re still eligible, you may re-apply.
+    If you’re no longer eligible, you may either update your payment information, or downgrade your account.
+
+If you have any questions, please contact GitHub Education.
+nathanrhoda /
+Dapps
+
+1
+0
+
+    0
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+
+    Insights
+
+Dapps/smart-contract-ui/index-newsyntax.html
+Nathan Rhoda Changed out syntax to fix issue
+Latest commit e24a7ad on Jul 21
+History
+0 contributors
+102 lines (86 sloc) 3.34 KB
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deploy a Remix Contract</title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    
+</head>
+
+<body>
+    <div>
+        <h1>Ethereum Secret Messenger</h1>
+        <hr>
+
+        <label for="message">This site writes a secret message to the Ethereum
+            blockchain!</label>
+        <input id="userInput" type="text">
+
+        <button id="setMessageButton" onclick="setMessageFunction();">Set secret message</button>
+    
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script type="text/javascript">
+        async function loadWeb3() {
+                    if (window.ethereum) {
+                        window.web3 = new Web3(window.ethereum);
+                        window.ethereum.enable();
+                    }
+                }
+
+        async function loadContract() {
+                return await new window.web3.eth.Contract([
+                {
+                  "constant": false,
+                  "inputs": [
+                    {
+                      "name": "x",
+                      "type": "string"
+                    }
+                  ],
+                  "name": "setMessage",
+                  "outputs": [],
+                  "payable": false,
+                  "stateMutability": "nonpayable",
+                  "type": "function"
+                },
+                {
+                  "constant": true,
+                  "inputs": [],
+                  "name": "getMessage",
+                  "outputs": [
+                    {
+                      "name": "",
+                      "type": "string"
+                    }
+                  ],
+                  "payable": false,
+                  "stateMutability": "view",
+                  "type": "function"
+                }
+              ], '0x50CF66c1C37333129C9B3E28301761b1038cF174');
+        }
+
+        async function setMessageFunction() {                        
+            message = $("#userInput").val();
+            const account = await getCurrentAccount();
+            await window.contract.methods.setMessage(message).send({ from: account });            
+        }
+
+        async function getCurrentAccount() {
+            const accounts = await window.web3.eth.getAccounts();            
+            return accounts[0];
+            //return web3.eth.defaultAccount;
+        }                      
+        
+        async function load() {
+            await loadWeb3();
+            window.contract = await loadContract();            
+        }
+            
+        load();
+      
+    </script>
+</body>
+
+</html>
+
+    © 2021 GitHub, Inc.
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+
+    Contact GitHub
+    Pricing
+    API
+    Training
+    Blog
+    About
+

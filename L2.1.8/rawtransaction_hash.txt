@@ -1,0 +1,11 @@
+utxo = [{"txid":"3012a6b206f2ea1f8e811c9a31c66dd08c4f70c13a63579afd7a7064470ba5b2", "vout": 0}, {"txid": "7ab1c8b99de1f62f1cc84f99eeb5bcce62b322636ad3d3396ec167196d8469d1", "vout": 0}]
+
+to_address = tb1qvh4z2s0k0cel6g4yrk7q5xcxnsd2v88vvu8ke7
+from_address = tb1qh40chlleugnhnuhq04wnef78rn9w6zpwxprusa
+
+amount_to_send = 0.00009000
+amount_sent_back = 0.00000249
+
+createrawtransaction '[{"txid":"3012a6b206f2ea1f8e811c9a31c66dd08c4f70c13a63579afd7a7064470ba5b2", "vout": 0}, {"txid": "7ab1c8b99de1f62f1cc84f99eeb5bcce62b322636ad3d3396ec167196d8469d1", "vout": 0}]' '{"tb1qvh4z2s0k0cel6g4yrk7q5xcxnsd2v88vvu8ke7": 0.00009000, "tb1qh40chlleugnhnuhq04wnef78rn9w6zpwxprusa": 0.00000249}'
+
+createrawtransaction '[{"txid":"5228bcb38d1fbf8b7ac798e751bc519a27968bd6bd165dc57c69b65670b6c19c", "vout": 1}]' '{"tb1qvh4z2s0k0cel6g4yrk7q5xcxnsd2v88vvu8ke7": 0.00010000, "tb1qh40chlleugnhnuhq04wnef78rn9w6zpwxprusa": 0.00053000}'
